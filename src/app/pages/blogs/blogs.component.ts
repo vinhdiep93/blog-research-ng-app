@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Blog } from './blog';
 import { BlogsService } from './blogs.service';
 
 @Component({
@@ -7,9 +8,13 @@ import { BlogsService } from './blogs.service';
 })
 
 export class BlogsComponent{
-    blogsData:Array<any>;
+    blogsData:Array<Blog>;
 
-  constructor(private _blogsService: BlogsService) {
-    this.blogsData = _blogsService.blogsData;
-  }
+    constructor(private _blogsService: BlogsService) {
+      this.getHeroes();
+    }
+
+    getHeroes(): void {
+      this._blogsService.getBlogs().then(blogs => this.blogsData = blogs);
+    }
 }

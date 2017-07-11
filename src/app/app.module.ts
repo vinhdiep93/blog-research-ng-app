@@ -5,6 +5,8 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 /*
  * Platform and Environment providers/directives/pipes
  */
@@ -47,7 +49,8 @@ export type StoreType = {
     NgaModule.forRoot(),
     NgbModule.forRoot(),
     PagesModule,
-    routing
+    routing,
+    InMemoryWebApiModule.forRoot(InMemoryDataService,{ passThruUnknownUrl: true, apiBase: 'api/' }),
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     APP_PROVIDERS

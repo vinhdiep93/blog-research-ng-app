@@ -1,60 +1,31 @@
 import { Injectable } from '@angular/core';
+import { Blog } from './blog';
+import { Headers, Http } from '@angular/http';
+
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class BlogsService {
 
-  smartTablePageSize = 10;
+  private blogsUrl = 'api/blogs';
 
-  blogsData = [
-    {
-      id: 1,
-      title:'This is title of blog 1',
-      author:'Vinh Diep'
-    },
-    {
-      id: 2,
-      title:'This is title of blog 2',
-      author:'Viet Pham'
-    },
-    {
-      id: 3,
-      title:'This is title of blog 3',
-      author:'Oai Le'
-    },
-    {
-      id: 4,
-      title:'This is title of blog 4',
-      author:'Vinh Diep'
-    },
-    {
-      id: 5,
-      title:'This is title of blog 5',
-      author:'Viet Pham'
-    },
-    {
-      id: 6,
-      title:'This is title of blog 6',
-      author:'Viet Pham'
-    },
-    {
-      id: 7,
-      title:'This is title of blog 7',
-      author:'Oai Le'
-    },
-    {
-      id: 8,
-      title:'This is title of blog 8',
-      author:'Oai Le'
-    },
-    {
-      id: 9,
-      title:'This is title of blog 9',
-      author:'Oai Le'
-    },
-    {
-      id: 10,
-      title:'This is title of blog 10',
-      author:'Vinh Diep'
-    }
-  ];
+  constructor(private http: Http){
+
+  }
+  getBlogs(): Promise<Blog[]>{
+    var a = this.http.get(this.blogsUrl)
+              .toPromise();
+
+    var b = a.then(response => response.json().data as Blog[]);
+    
+    return this.http.get(this.blogsUrl)
+              .toPromise()
+              .then(response => response.json().data as Blog[])
+              .catch(this.handleError);
+  }
+
+  private handleError(error: any): Promise<any> {
+    console.error('An error occurred', error); // for demo purposes only
+    return Promise.reject(error.message || error);
+  }
 }

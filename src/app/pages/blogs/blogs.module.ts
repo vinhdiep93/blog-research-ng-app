@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgaModule } from '../../theme/nga.module';
+import { HttpModule } from '@angular/http';
+import { Blog } from './blog';
 
 import { BlogsComponent } from './blogs.component';
 import { BlogsService } from './blogs.service';
@@ -13,7 +15,8 @@ import { routing } from './blogs.routing';
     CommonModule,
     FormsModule,
     NgaModule,
-    routing
+    routing,
+    HttpModule
   ],
   declarations: [
     BlogsComponent,
