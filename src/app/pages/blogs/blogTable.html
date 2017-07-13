@@ -5,14 +5,12 @@
                     <tr>
                     <th class="table-id">#</th>
                     <th>Title</th>
-                    <th>Author</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr *ngFor="let item of blogsData">
                     <td class="table-id">{{ item.id }}</td>
                     <td>{{item.title}}</td>
-                    <td>{{item.author}}</td>
                     </tr>
                     </tbody>
                 </table>

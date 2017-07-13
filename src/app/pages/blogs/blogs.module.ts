@@ -10,13 +10,17 @@ import { BlogsService } from './blogs.service';
 
 import { routing } from './blogs.routing';
 
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from '../../in-memory-data.service';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     NgaModule,
     routing,
-    HttpModule
+    HttpModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService, { passThruUnknownUrl: true}),
   ],
   declarations: [
     BlogsComponent,

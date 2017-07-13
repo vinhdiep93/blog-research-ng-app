@@ -3,12 +3,12 @@ import { Blog } from './blog';
 import { BlogsService } from './blogs.service';
 
 @Component({
-    selector:'blog',
-    templateUrl:'./blogTable.html'
+    selector: 'blog',
+    templateUrl: './blogTable.html'
 })
 
-export class BlogsComponent{
-    blogsData:Array<Blog>;
+export class BlogsComponent {
+    blogsData: Array<Blog>;
 
     constructor(private _blogsService: BlogsService) {
       this.getHeroes();

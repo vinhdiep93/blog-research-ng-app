@@ -50,7 +50,7 @@ export type StoreType = {
     NgbModule.forRoot(),
     PagesModule,
     routing,
-    InMemoryWebApiModule.forRoot(InMemoryDataService,{ passThruUnknownUrl: true, apiBase: 'api/' }),
+    InMemoryWebApiModule.forRoot(InMemoryDataService,{ passThruUnknownUrl: true}),
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     APP_PROVIDERS
