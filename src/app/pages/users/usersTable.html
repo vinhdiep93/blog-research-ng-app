@@ -1,0 +1,23 @@
+<div class="widgets">
+        <ba-card baCardClass="with-scroll" class="smart-table-container">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                    <th class="table-id">#</th>
+                    <th>Username</th>
+                    <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let user of usersData">
+                    <td class="table-id">{{ user.id }}</td>
+                    <td>{{user.username}}</td>
+                    <td>
+                            <button class="btn btn-primary">Active</button>
+                            <button class="btn btn-default">InActive</button>
+                    </td>
+                    </tr>
+                    </tbody>
+                </table>
+        </ba-card>
+</div>

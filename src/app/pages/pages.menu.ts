@@ -13,6 +13,18 @@ export const PAGES_MENU = [
             order: 0
           }
         }
+      },
+       {
+        path: 'users',  // path for our page
+        data: { // custom menu declaration
+          menu: {
+            title: 'general.menu.users', // menu title
+            icon: 'ion-android-home', // menu icon
+            selected: false,
+            expanded: false,
+            order: 0
+          }
+        }
       }
     ]
   }
